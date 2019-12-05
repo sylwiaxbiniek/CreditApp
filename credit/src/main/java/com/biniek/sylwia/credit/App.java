@@ -1,10 +1,10 @@
-package com.biniek.sylwia;
+package com.biniek.sylwia.credit;
 
 /**
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {

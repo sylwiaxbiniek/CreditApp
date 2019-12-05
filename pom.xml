@@ -5,16 +5,21 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.biniek.sylwia</groupId>
-  <artifactId>ZadanieJava</artifactId>
+  <artifactId>parent-pom</artifactId>
   <version>1.0-SNAPSHOT</version>
-
-  <name>ZadanieJava</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <packaging>pom</packaging>
+  <name>Zadanie ewaluacyjne JAVA</name>
+  <url>https://github.com/sylwiaxbiniek/ZadanieJava</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+  <modules>
+    <module>credit</module>
+    <module>customer</module>
+    <module>product</module>
+  </modules>
 
   <dependencies>
     <dependency>
