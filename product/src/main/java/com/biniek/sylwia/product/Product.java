@@ -10,4 +10,22 @@ class Product {
   private String productName;
   private int value;
 
+  public Product(Long creditId, String productName, int value) {
+    this.creditId = creditId;
+    this.productName = productName;
+    this.value = value;
+  }
+
+  public Long getCreditId() {
+    return creditId;
+  }
+
+  public String getProductName() {
+    return productName;
+  }
+
+  public int getValue() {
+    return value;
+  }
+
 }
