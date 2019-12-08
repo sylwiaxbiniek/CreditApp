@@ -1,6 +1,6 @@
 # Zadanie ewaluacyjne JAVA
 
-[![Java CI](https://github.com/sylwiaxbiniek/ZadanieJava/workflows/Java%20CI/badge.svg)](https://github.com/sylwiaxbiniek/ZadanieJava/actions/new)
+[![Java CI](https://github.com/sylwiaxbiniek/ZadanieJava/workflows/Java%20CI/badge.svg)](https://github.com/sylwiaxbiniek/ZadanieJava/actions/)
 [![Build Status](https://travis-ci.com/sylwiaxbiniek/ZadanieJava.svg?branch=master)](https://travis-ci.com/sylwiaxbiniek/ZadanieJava)
 [![codecov](https://codecov.io/gh/sylwiaxbiniek/ZadanieJava/branch/master/graph/badge.svg)](https://codecov.io/gh/sylwiaxbiniek/ZadanieJava)
 
