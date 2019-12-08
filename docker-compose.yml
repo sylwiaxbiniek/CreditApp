@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  credit:
+    image: docker.pkg.github.com/sylwiaxbiniek/zadaniejava/credit:1.0-SNAPSHOT
+    command: java -jar /usr/share/credit/credit.jar
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+  customer:
+    image: docker.pkg.github.com/sylwiaxbiniek/zadaniejava/customer:1.0-SNAPSHOT
+    command: java -jar /usr/share/customer/customer.jar
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+  product:
+    image: docker.pkg.github.com/sylwiaxbiniek/zadaniejava/product:1.0-SNAPSHOT
+    command: java -jar /usr/share/product/product.jar
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
