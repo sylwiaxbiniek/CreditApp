@@ -10,6 +10,9 @@ class Product {
   private String productName;
   private int value;
 
+  public Product() {
+  }
+
   public Product(Long creditId, String productName, int value) {
     this.creditId = creditId;
     this.productName = productName;
