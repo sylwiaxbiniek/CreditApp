@@ -21,8 +21,8 @@ mvn package
 Wynikiem procesu budowania są trzy obrazy:
 
 * docker.pkg.github.com/sylwiaxbiniek/zadaniejava/credit
-* docker.pkg.github.com/sylwiaxbiniek/zadaniejava/customer   
-* docker.pkg.github.com/sylwiaxbiniek/zadaniejava/product  
+* docker.pkg.github.com/sylwiaxbiniek/zadaniejava/customer
+* docker.pkg.github.com/sylwiaxbiniek/zadaniejava/product
 
 Budowanie obrazów jest jednym z kroków Java CI. Następnie są one wypychane do repozytorium [GitHub Packages](https://github.com/sylwiaxbiniek/ZadanieJava/packages).
 
