@@ -24,6 +24,10 @@ public class Product {
     this.value = value;
   }
 
+  public void setCreditId(Long creditId){
+    this.creditId = creditId;
+  }
+
   public Long getCreditId() {
     return creditId;
   }

@@ -1,5 +1,6 @@
 package com.biniek.sylwia.credit;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +14,15 @@ import java.util.List;
 @RestController
 public class CreditController {
 
+    @Autowired
+    private RestDataService restDataService;
+
     @PostMapping("/createCredit")
-    public ResponseEntity createCredit(@RequestBody Credit customer) {
-        return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+    public Credit createCredit(@RequestBody RestData restData) {
+        RestData data = restDataService.createCredit(restData);
+        Credit credit = data.getCredit();
+        credit.setCreditName(null);
+        return credit;
     }
 
     @GetMapping("/getCredits")

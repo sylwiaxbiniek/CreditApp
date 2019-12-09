@@ -26,6 +26,10 @@ public class Customer {
     this.surname = surname;
   }
 
+  public void setCreditId(Long creditId){
+    this.creditId = creditId;
+  }
+
   public Long getCreditId() {
     return creditId;
   }

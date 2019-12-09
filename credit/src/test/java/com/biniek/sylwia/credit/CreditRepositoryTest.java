@@ -28,7 +28,7 @@ public class CreditRepositoryTest {
         List<Credit> credits = repository.findAll();
         assertEquals(1, credits.size());
 
-        assertThat(credits).extracting(Credit::getId).containsOnly(Long.valueOf(1));
+        assertThat(credits).extracting(Credit::getCreditId).containsOnly(Long.valueOf(1));
         assertThat(credits).extracting(Credit::getCreditName).containsOnly("Dummy Name");
 
     }
