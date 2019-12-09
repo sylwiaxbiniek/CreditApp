@@ -1,4 +1,7 @@
-package com.biniek.sylwia.customer;
+package com.biniek.sylwia.credit;
+
+import com.biniek.sylwia.customer.Customer;
+import com.biniek.sylwia.product.Product;
 
 import com.google.gson.Gson;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,51 +29,52 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(CustomerController.class)
-public class CustomerControllerTest {
+@WebMvcTest(CreditController.class)
+public class CreditControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @MockBean
-    private CustomerService service;
+    private CreditService service;
 
     @Test
-    public void addCustomer() throws Exception {
+    public void addCredit() throws Exception {
       Gson gson = new Gson();
-      Customer cust = new Customer(Long.valueOf(1), "jan", "123", "kowalski");
-      given(service.save(Mockito.any())).willReturn(cust);
+      InputData data = new InputData();
+      data.product = new Product("dummy", 123);
+      data.customer = new Customer("jan", "123", "kowalski");
+      data.credit = new Credit("fancy");
 
-      mvc.perform(post("/createCustomer")
+      Long id = Long.valueOf(76543);
+
+      given(service.createCredit(Mockito.any())).willReturn(id);
+
+      mvc.perform(post("/createCredit")
          .contentType(MediaType.APPLICATION_JSON)
-         .content(gson.toJson(cust)))
-         .andExpect(status().isOk())
-         .andExpect(jsonPath("$.firstName", is("jan")))
-         .andExpect(jsonPath("$.pesel", is("123")))
-         .andExpect(jsonPath("$.surname", is("kowalski")));
-      verify(service, VerificationModeFactory.times(1)).save(Mockito.any());
+         .content(gson.toJson(data)))
+         .andExpect(status().isOk());
+      verify(service, VerificationModeFactory.times(1)).createCredit(Mockito.any());
       reset(service);
     }
 
     @Test
-    public void getCustomers() throws Exception {
+    public void getCredits() throws Exception {
       Gson gson = new Gson();
-      Customer cust1 = new Customer(Long.valueOf(1), "jan", "123", "kowalski");
-      Customer cust2 = new Customer(Long.valueOf(1), "jan", "453", "kowalski");
-      Customer cust3 = new Customer(Long.valueOf(1), "jan", "565", "kowalski");
-      List<Customer> custs = Arrays.asList(cust1, cust2, cust3);
-      List<Long> ids = Arrays.asList(Long.valueOf(1),Long.valueOf(2),Long.valueOf(3));
+      InputData data = new InputData();
+      data.product = new Product("dummy", 123);
+      data.customer = new Customer("jan", "123", "kowalski");
+      data.credit = new Credit("fancy");
+      List<InputData> dats = Arrays.asList(data,data,data);
 
-      given(service.getAllByIds(Mockito.any())).willReturn(custs);
+      given(service.getAllData()).willReturn(dats);
 
-      mvc.perform(post("/getCustomers")
+      mvc.perform(get("/getCredits")
          .contentType(MediaType.APPLICATION_JSON)
-         .content(gson.toJson(ids)))
+         .content(""))
          .andExpect(status().isOk())
-         .andExpect(jsonPath("$[0].pesel", is("123")))
-         .andExpect(jsonPath("$[1].pesel", is("453")))
-         .andExpect(jsonPath("$[2].pesel", is("565")));
-      verify(service, VerificationModeFactory.times(1)).getAllByIds(Mockito.any());
+         .andExpect(jsonPath("$[0].product.productName", is("dummy")));
+      verify(service, VerificationModeFactory.times(1)).getAllData();
       reset(service);
     }
 }
