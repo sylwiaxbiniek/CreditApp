@@ -36,7 +36,7 @@ public class CustomerControllerTest {
     private CustomerService service;
 
     @Test
-    public void addCustomer() throws Exception {
+    public void addCustomerAndGet() throws Exception {
       Gson gson = new Gson();
       Customer cust = new Customer(Long.valueOf(1), "jan", "123", "kowalski");
       given(service.save(Mockito.any())).willReturn(cust);
