@@ -4,6 +4,14 @@
 [![Build Status](https://travis-ci.com/sylwiaxbiniek/ZadanieJava.svg?branch=master)](https://travis-ci.com/sylwiaxbiniek/ZadanieJava)
 [![codecov](https://codecov.io/gh/sylwiaxbiniek/ZadanieJava/branch/master/graph/badge.svg)](https://codecov.io/gh/sylwiaxbiniek/ZadanieJava)
 
+## Użycie aplikacji
+
+Usługa CreateCredit może zostać wywołana przy pomocy zapytania POST:
+
+```bash
+curl -H Content-Type: application/json -d {"customer":{"firstName":"Jan","pesel":"1234567890","surname":"Kowalski"},"product":{"productName":"samolot","value":1000000},"credit":{"creditName":"kredyt na samolot"}} 172.19.0.3:8080/createCredit
+```
+
 ## Budowanie
 
 Obrazy dockerowe zawierające poszczególne aplikacje można zbudować wykorzystując Maven Wrapper który nie wymaga wcześniejszej instalacji:
