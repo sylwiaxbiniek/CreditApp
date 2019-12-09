@@ -6,4 +6,6 @@ public interface RestDataService {
 
   public RestData createCredit(RestData restData);
 
+  public List<RestData> getAllCredits();
+
 }

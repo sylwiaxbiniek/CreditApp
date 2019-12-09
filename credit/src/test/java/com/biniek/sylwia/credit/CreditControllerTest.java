@@ -63,4 +63,37 @@ public class CreditControllerTest {
       reset(service);
     }
 
+    @Test
+    public void getAllCredits() throws Exception {
+      Long creditId = Long.valueOf(111);
+      Customer customer = new Customer("Jan", "1234567890", "Kowalski");
+      customer.setCreditId(creditId);
+      Product product = new Product("samolot", 1000000);
+      product.setCreditId(creditId);
+      Credit credit = new Credit("kredyt na samolot");
+      credit.setCreditId(creditId);
+      RestData restData = new RestData(customer, product, credit);
+
+      List<RestData> allRestData = Arrays.asList(restData);
+
+      given(service.getAllCredits()).willReturn(allRestData);
+
+      mvc.perform(get("/getCredits")
+         .contentType(MediaType.APPLICATION_JSON)
+         .content(""))
+         .andExpect(status().isOk())
+         .andExpect(jsonPath("$", hasSize(1)))
+         .andExpect(jsonPath("$[0].customer.*", hasSize(3)))
+         .andExpect(jsonPath("$[0].product.*", hasSize(2)))
+         .andExpect(jsonPath("$[0].credit.*", hasSize(1)))
+         .andExpect(jsonPath("$[0].customer.firstName").value(customer.getFirstName()))
+         .andExpect(jsonPath("$[0].customer.pesel").value(customer.getPesel()))
+         .andExpect(jsonPath("$[0].customer.surname").value(customer.getSurname()))
+         .andExpect(jsonPath("$[0].product.productName").value(product.getProductName()))
+         .andExpect(jsonPath("$[0].product.value").value(product.getValue()))
+         .andExpect(jsonPath("$[0].credit.creditName").value(credit.getCreditName()));
+      verify(service, VerificationModeFactory.times(1)).getAllCredits();
+      reset(service);
+    }
+
 }

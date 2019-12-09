@@ -26,8 +26,15 @@ public class CreditController {
     }
 
     @GetMapping("/getCredits")
-    public List<Credit> getCustomers() {
-        return new ArrayList<Credit>();
+    public List<RestData> getCustomers() {
+      List<RestData> allData = restDataService.getAllCredits();
+      for(RestData data : allData) {
+        data.getCredit().setCreditId(null);
+        data.getCustomer().setCreditId(null);
+        data.getProduct().setCreditId(null);
+      }
+
+      return allData;
     }
 
 }

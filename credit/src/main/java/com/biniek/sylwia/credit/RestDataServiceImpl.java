@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,6 +18,11 @@ public class RestDataServiceImpl implements RestDataService {
     restData.getProduct().setCreditId(creditId);
     restData.getCustomer().setCreditId(creditId);
     return restData;
+  }
+
+  @Override
+  public List<RestData> getAllCredits() {
+    return new ArrayList<RestData>();
   }
 
 }

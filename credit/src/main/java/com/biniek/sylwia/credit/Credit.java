@@ -5,11 +5,10 @@ import javax.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 class Credit {
 
   private @Id Long creditId;
-
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String creditName;
 
   public Credit(String creditName) {

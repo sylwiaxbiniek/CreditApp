@@ -2,8 +2,10 @@ package com.biniek.sylwia.product;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Product {
 
   private @Id Long creditId;
