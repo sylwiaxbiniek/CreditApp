@@ -12,6 +12,19 @@
   <groupId>com.biniek.sylwia.credit</groupId>
   <artifactId>credit</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.biniek.sylwia.customer</groupId>
+      <artifactId>customer</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.biniek.sylwia.product</groupId>
+      <artifactId>product</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
