@@ -31,7 +31,7 @@
           <repository>${project.repoName}/${project.artifactId}</repository>
           <tag>${project.version}</tag>
           <buildArgs>
-            <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+            <JAR_FILE>${project.build.finalName}-exec.jar</JAR_FILE>
             <APP_NAME>${project.artifactId}</APP_NAME>
           </buildArgs>
         </configuration>
