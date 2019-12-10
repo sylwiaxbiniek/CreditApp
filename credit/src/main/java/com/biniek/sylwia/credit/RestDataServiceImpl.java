@@ -36,7 +36,7 @@ public class RestDataServiceImpl implements RestDataService {
 
   @Override
   public RestData createCredit(RestData restData) {
-    Long creditId = Long.valueOf(666);
+    Long creditId = Long.valueOf(restData.hashCode());
     restData.getCredit().setCreditId(creditId);
     restData.getProduct().setCreditId(creditId);
     restData.getCustomer().setCreditId(creditId);
