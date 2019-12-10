@@ -11,6 +11,9 @@ class Credit {
   private @Id Long creditId;
   private String creditName;
 
+  public Credit() {
+  }
+
   public Credit(String creditName) {
     this.creditName = creditName;
   }
