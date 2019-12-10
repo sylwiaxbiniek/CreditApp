@@ -11,17 +11,24 @@ import java.util.List;
 @Transactional
 public class RestDataServiceImpl implements RestDataService {
 
+  @Autowired
+  private CreditRepository creditRepository;
+
   @Override
   public RestData createCredit(RestData restData) {
     Long creditId = Long.valueOf(666);
     restData.getCredit().setCreditId(creditId);
     restData.getProduct().setCreditId(creditId);
     restData.getCustomer().setCreditId(creditId);
+
+    creditRepository.save(restData.getCredit());
+
     return restData;
   }
 
   @Override
   public List<RestData> getAllCredits() {
+    List<Credit> creditIds = creditRepository.findAll();
     return new ArrayList<RestData>();
   }
 
