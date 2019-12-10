@@ -6,6 +6,14 @@
 
 ## Użycie aplikacji
 
+Uruchomienie aplikacji nie wymaga wcześniejszego lokalnego budowania - wszystkie wymagane obrazy są dostępne do pobrania z internetu. Do uruchomienia aplikacji możemy wykorzystać docker-compose:
+
+```bash
+docker-compose up
+```
+
+od tego momentu możemy korzystać z usług CreateCredit oraz GetCredits które są wystawione pod adresem IP kontenera `credit`
+
 Usługa CreateCredit może zostać wywołana przy pomocy zapytania POST:
 
 ```bash
