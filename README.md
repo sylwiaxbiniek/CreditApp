@@ -12,6 +12,12 @@ Usługa CreateCredit może zostać wywołana przy pomocy zapytania POST:
 curl -H Content-Type: application/json -d {"customer":{"firstName":"Jan","pesel":"1234567890","surname":"Kowalski"},"product":{"productName":"samolot","value":1000000},"credit":{"creditName":"kredyt na samolot"}} 172.19.0.3:8080/createCredit
 ```
 
+Usługa GetCredits jest wywoływana zapytaniem GET:
+
+```bash
+curl 172.19.0.3:8080/getCredits
+```
+
 ## Budowanie
 
 Obrazy dockerowe zawierające poszczególne aplikacje można zbudować wykorzystując Maven Wrapper który nie wymaga wcześniejszej instalacji:
