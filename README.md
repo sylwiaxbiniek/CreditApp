@@ -1,4 +1,4 @@
-# Zadanie ewaluacyjne JAVA
+# CreditApp JAVA
 
 [![Java CI](https://github.com/sylwiaxbiniek/ZadanieJava/workflows/Java%20CI/badge.svg)](https://github.com/sylwiaxbiniek/ZadanieJava/actions/)
 [![Build Status](https://travis-ci.com/sylwiaxbiniek/ZadanieJava.svg?branch=master)](https://travis-ci.com/sylwiaxbiniek/ZadanieJava)
